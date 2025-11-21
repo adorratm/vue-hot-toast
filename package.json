@@ -3,26 +3,23 @@
   "version": "1.0.0",
   "description": "Smoking hot Notifications for Vue.js 🔥 - Vue 2/3 & Nuxt 2/3/4 Support",
   "type": "module",
-  "main": "./dist/vue-hot-toast.cjs",
-  "module": "./dist/vue-hot-toast.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/vue-hot-toast.mjs",
-      "require": "./dist/vue-hot-toast.cjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./Toaster.vue": "./src/Toaster.vue",
     "./style.css": "./dist/style.css",
     "./plugin": {
       "types": "./dist/plugin.d.ts",
-      "import": "./dist/plugin.mjs",
+      "import": "./dist/plugin.js",
       "require": "./dist/plugin.cjs"
     },
-    "./nuxt": {
-      "import": "./nuxt/module.mjs",
-      "require": "./nuxt/module.cjs"
-    },
+    "./nuxt": "./nuxt/module.mjs",
     "./nuxt2": "./nuxt2/module.js",
     "./nuxt4": {
       "import": "./nuxt4/module.mjs",
@@ -31,6 +28,7 @@
   },
   "files": [
     "dist",
+    "src",
     "nuxt",
     "nuxt2",
     "nuxt4",
@@ -38,6 +36,9 @@
     "LICENSE",
     "CHANGELOG.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsup",

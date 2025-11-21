@@ -1,11 +1,6 @@
 import { defineNuxtModule, addComponent, addPlugin, createResolver } from '@nuxt/kit'
-import type { ToastConfig } from '../src/config'
 
-export interface ModuleOptions extends Partial<ToastConfig> {
-  // Module specific options
-}
-
-export default defineNuxtModule<ModuleOptions>({
+export default defineNuxtModule({
   meta: {
     name: '@adorratm/vue-hot-toast',
     configKey: 'vueHotToast',
@@ -24,12 +19,13 @@ export default defineNuxtModule<ModuleOptions>({
       filePath: '@adorratm/vue-hot-toast/Toaster.vue',
     })
 
-    // Add plugin for global config
-    if (Object.keys(options).length > 0) {
-      addPlugin({
-        src: resolver.resolve('./runtime/plugin'),
-        mode: 'client',
-      })
-    }
+    // Always add plugin for global config
+    addPlugin({
+      src: resolver.resolve('./runtime/plugin.mjs'),
+      mode: 'client',
+    })
   },
 })
+
+// Ensure default export
+export { default }
