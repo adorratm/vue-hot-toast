@@ -1,6 +1,6 @@
 {
   "name": "@adorratm/vue-hot-toast",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Smoking hot Notifications for Vue.js 🔥 - Vue 2/3 & Nuxt 2/3/4 Support",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -19,7 +19,10 @@
       "import": "./dist/plugin.js",
       "require": "./dist/plugin.cjs"
     },
-    "./nuxt": "./nuxt/module.mjs",
+    "./nuxt": {
+      "import": "./nuxt/module.mjs",
+      "require": "./nuxt/module.mjs"
+    },
     "./nuxt2": "./nuxt2/module.js",
     "./nuxt4": {
       "import": "./nuxt4/module.mjs",

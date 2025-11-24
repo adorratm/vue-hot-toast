@@ -1,4 +1,4 @@
-import { defineNuxtModule, addComponent, addPlugin, createResolver } from '@nuxt/kit'
+import { defineNuxtModule, addComponent } from '@nuxt/kit'
 
 export default defineNuxtModule({
   meta: {
@@ -10,22 +10,11 @@ export default defineNuxtModule({
   },
   defaults: {},
   setup(options, nuxt) {
-    const resolver = createResolver(import.meta.url)
-
-    // Add Toaster component
+    // Add Toaster component using package export path
     addComponent({
       name: 'Toaster',
       export: 'default',
       filePath: '@adorratm/vue-hot-toast/Toaster.vue',
     })
-
-    // Always add plugin for global config
-    addPlugin({
-      src: resolver.resolve('./runtime/plugin.mjs'),
-      mode: 'client',
-    })
   },
 })
-
-// Ensure default export
-export { default }
